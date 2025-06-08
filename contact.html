@@ -7,24 +7,24 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <h1>Logo</h1>
+                    <a href="index.html" class="nav-link">
+                        <h1>Tanita Island</h1>
+                    </a>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Link 1</a></li>
-                    <li><a href="#" class="nav-link">Link 2</a></li>
-                    <li><a href="#" class="nav-link">Link 3</a></li>
-                    <li><a href="#" class="nav-link">Link 4</a></li>
-                    <li><a href="#" class="nav-link">Link 5</a></li>
-                    <li><a href="contact.html" class="nav-link">Link 6</a></li>
+                    <li><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li><a href="lodging.html" class="nav-link">Lodging</a></li>
+                    <li><a href="activities.html" class="nav-link">Activities</a></li>
+                    <li><a href="transportation.html" class="nav-link">Transportation</a></li>
+                    <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Page Header -->
         <section class="page-header">
             <div class="header-content">
                 <h1>Contact Title</h1>
@@ -32,33 +32,77 @@
             </div>
         </section>
 
-        <!-- Main Content -->
         <main class="main-content">
             <div class="content-container">
                 <section class="contact-section">
                     <div class="contact-form">
                         <h2>Form Title</h2>
-                        <form>
+                        <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Name Label</label>
-                                <input type="text" id="name" name="name" placeholder="Name placeholder">
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Name placeholder"
+                                    required
+                                />
                             </div>
                             <div class="form-group">
-                                <label for="email">Email Label</label>
-                                <input type="email" id="email" name="email" placeholder="Email placeholder">
+                                <label for="phone">Phone Label</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Phone placeholder"
+                                    required
+                                />
                             </div>
-                            <button type="submit" class="submit-btn">Submit Button</button>
+                            <div class="form-group">
+                                <label for="message">Message Label</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Message placeholder"
+                                    rows="5"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Submit Button
+                            </button>
                         </form>
                     </div>
                 </section>
             </div>
         </main>
 
-        <!-- Footer -->
+        <div id="toast" class="toast">Thanks for contacting us!</div>
+
         <footer class="footer">
             <div class="footer-content">
-                <p>Footer text placeholder</p>
+                <p>
+                    Copyright &copy; 2023 Taniti Island Tourism. All rights
+                    reserved.
+                </p>
             </div>
         </footer>
+
+        <script>
+            document
+                .getElementById("contactForm")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const toast = document.getElementById("toast");
+                    toast.classList.add("show");
+
+                    this.reset();
+
+                    setTimeout(() => {
+                        toast.classList.remove("show");
+                    }, 3000);
+                });
+        </script>
     </body>
 </html>
